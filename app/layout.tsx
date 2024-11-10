@@ -2,6 +2,19 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Script from "next/script";
+
+function setInitialTheme() {
+  const prefersDarkMode = window.matchMedia(
+    "(prefers-color-scheme: dark)"
+  ).matches;
+  const theme = prefersDarkMode ? "dracula" : "cupcake";
+  document.documentElement.setAttribute("data-theme", theme);
+}
+
+const script = `
+  (${setInitialTheme.toString()})();
+`;
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,6 +41,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Script dangerouslySetInnerHTML={{__html: script}}/>
       <body className={inter.className}>{children}</body>
     </html>
   );
