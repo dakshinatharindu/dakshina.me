@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
+import NavBar from "./NavBar";
 
 function setInitialTheme() {
   const prefersDarkMode = window.matchMedia(
@@ -15,17 +15,6 @@ function setInitialTheme() {
 const script = `
   (${setInitialTheme.toString()})();
 `;
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
 
 const inter = Inter({ subsets: ["latin"], weight: ["400", "900"] });
 
@@ -41,8 +30,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Script dangerouslySetInnerHTML={{__html: script}}/>
-      <body className={inter.className}>{children}</body>
+      <Script dangerouslySetInnerHTML={{ __html: script }} />
+      <body className={inter.className}>
+        <NavBar />
+        <main className="p-5">{children}</main>
+      </body>
     </html>
   );
 }
