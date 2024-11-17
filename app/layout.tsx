@@ -1,20 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Script from "next/script";
+import "./globalicons.css";
 import NavBar from "./NavBar";
-
-function setInitialTheme() {
-  const prefersDarkMode = window.matchMedia(
-    "(prefers-color-scheme: dark)"
-  ).matches;
-  const theme = prefersDarkMode ? "dracula" : "cupcake";
-  document.documentElement.setAttribute("data-theme", theme);
-}
-
-const script = `
-  (${setInitialTheme.toString()})();
-`;
 
 const inter = Inter({ subsets: ["latin"], weight: ["400", "900"] });
 
@@ -29,8 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <Script dangerouslySetInnerHTML={{ __html: script }} />
+    <html lang="en" data-theme="dracula">
       <body className={inter.className}>
         <NavBar />
         <main className="p-5">{children}</main>
