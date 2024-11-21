@@ -1,11 +1,13 @@
 "use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React, { useState, useEffect, useRef } from "react";
 import ThemeToggleButton from "./components/navbar/ThemeToggleButton";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -18,16 +20,16 @@ const NavBar = () => {
       }
     };
 
-    // Add event listener when menu is open
     if (isMenuOpen) {
       document.addEventListener("mousedown", handleClickOutside);
     }
 
-    // Cleanup the event listener
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isMenuOpen]);
+
+  const isActive = (path: string) => pathname === path;
 
   return (
     <div className="navbar bg-base-100" ref={menuRef}>
@@ -42,7 +44,7 @@ const NavBar = () => {
           <span className="material-symbols-outlined">menu</span>
         </button>
         {/* Brand */}
-        <Link href="/" className="btn btn-ghost text-xl lg:ml-10">
+        <Link href="/" className="btn btn-ghost text-xl">
           Dakshina Tharindu
         </Link>
       </div>
@@ -52,16 +54,36 @@ const NavBar = () => {
         <div className="lg:flex hidden">
           <ul className="menu menu-horizontal items-center">
             <li>
-              <Link href="/">Home</Link>
+              <Link 
+                href="/" 
+                className={isActive('/') ? 'font-bold' : ''}
+              >
+                Home
+              </Link>
             </li>
             <li>
-              <Link href="/">Publications</Link>
+              <Link 
+                href="/" 
+                className={isActive('/publications') ? 'font-bold' : ''}
+              >
+                Publications
+              </Link>
             </li>
             <li>
-              <Link href="/projects">Projects</Link>
+              <Link 
+                href="/projects" 
+                className={isActive('/projects') ? 'font-bold' : ''}
+              >
+                Projects
+              </Link>
             </li>
             <li>
-              <Link href="/">Blog</Link>
+              <Link 
+                href="/" 
+                className={isActive('/blog') ? 'font-bold' : ''}
+              >
+                Blog
+              </Link>
             </li>
           </ul>
         </div>
@@ -73,22 +95,38 @@ const NavBar = () => {
         <div className="absolute top-16 left-4 bg-base-200 shadow-md rounded-lg z-50 w-52">
           <ul className="menu menu-vertical p-2">
             <li>
-              <Link href="/" onClick={toggleMenu}>
+              <Link 
+                href="/" 
+                onClick={toggleMenu}
+                className={isActive('/') ? 'font-bold' : ''}
+              >
                 Home
               </Link>
             </li>
             <li>
-              <Link href="/" onClick={toggleMenu}>
+              <Link 
+                href="/" 
+                onClick={toggleMenu}
+                className={isActive('/publications') ? 'font-bold' : ''}
+              >
                 Publications
               </Link>
             </li>
             <li>
-              <Link href="/projects" onClick={toggleMenu}>
+              <Link 
+                href="/projects" 
+                onClick={toggleMenu}
+                className={isActive('/projects') ? 'font-bold' : ''}
+              >
                 Projects
               </Link>
             </li>
             <li>
-              <Link href="/" onClick={toggleMenu}>
+              <Link 
+                href="/" 
+                onClick={toggleMenu}
+                className={isActive('/blog') ? 'font-bold' : ''}
+              >
                 Blog
               </Link>
             </li>
