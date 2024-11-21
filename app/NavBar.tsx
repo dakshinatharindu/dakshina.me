@@ -3,6 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState, useEffect, useRef } from "react";
 import ThemeToggleButton from "./components/navbar/ThemeToggleButton";
+import { FiMenu } from "react-icons/fi";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -41,7 +42,7 @@ const NavBar = () => {
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
-          <span className="material-symbols-outlined">menu</span>
+          <FiMenu />
         </button>
         {/* Brand */}
         <Link href="/" className="btn btn-ghost text-xl">
@@ -54,34 +55,28 @@ const NavBar = () => {
         <div className="lg:flex hidden">
           <ul className="menu menu-horizontal items-center">
             <li>
-              <Link 
-                href="/" 
-                className={isActive('/') ? 'font-bold' : ''}
-              >
+              <Link href="/" className={isActive("/") ? "font-bold" : ""}>
                 Home
               </Link>
             </li>
             <li>
-              <Link 
-                href="/" 
-                className={isActive('/publications') ? 'font-bold' : ''}
+              <Link
+                href="/"
+                className={isActive("/publications") ? "font-bold" : ""}
               >
                 Publications
               </Link>
             </li>
             <li>
-              <Link 
-                href="/projects" 
-                className={isActive('/projects') ? 'font-bold' : ''}
+              <Link
+                href="/projects"
+                className={isActive("/projects") ? "font-bold" : ""}
               >
                 Projects
               </Link>
             </li>
             <li>
-              <Link 
-                href="/" 
-                className={isActive('/blog') ? 'font-bold' : ''}
-              >
+              <Link href="/" className={isActive("/blog") ? "font-bold" : ""}>
                 Blog
               </Link>
             </li>
@@ -95,37 +90,37 @@ const NavBar = () => {
         <div className="absolute top-16 left-4 bg-base-200 shadow-md rounded-lg z-50 w-52">
           <ul className="menu menu-vertical p-2">
             <li>
-              <Link 
-                href="/" 
+              <Link
+                href="/"
                 onClick={toggleMenu}
-                className={isActive('/') ? 'font-bold' : ''}
+                className={isActive("/") ? "font-bold" : ""}
               >
                 Home
               </Link>
             </li>
             <li>
-              <Link 
-                href="/" 
+              <Link
+                href="/"
                 onClick={toggleMenu}
-                className={isActive('/publications') ? 'font-bold' : ''}
+                className={isActive("/publications") ? "font-bold" : ""}
               >
                 Publications
               </Link>
             </li>
             <li>
-              <Link 
-                href="/projects" 
+              <Link
+                href="/projects"
                 onClick={toggleMenu}
-                className={isActive('/projects') ? 'font-bold' : ''}
+                className={isActive("/projects") ? "font-bold" : ""}
               >
                 Projects
               </Link>
             </li>
             <li>
-              <Link 
-                href="/" 
+              <Link
+                href="/"
                 onClick={toggleMenu}
-                className={isActive('/blog') ? 'font-bold' : ''}
+                className={isActive("/blog") ? "font-bold" : ""}
               >
                 Blog
               </Link>
