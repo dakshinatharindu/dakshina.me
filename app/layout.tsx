@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import "./globalicons.css";
 import NavBar from "./NavBar";
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter({ subsets: ["latin"], weight: ["400", "900"] });
 
@@ -20,8 +20,12 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="dracula">
       <body className={inter.className}>
-        <NavBar />
-        <main className="p-5">{children}</main>
+        <div className="flex justify-center w-full min-h-screen">
+          <div className="w-full max-w-7xl">
+            <NavBar />
+            <main className="p-5">{children}</main>
+          </div>
+        </div>
       </body>
       <GoogleAnalytics gaId="G-X6D5LQ4S16" />
     </html>
