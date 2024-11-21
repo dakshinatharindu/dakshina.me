@@ -1,17 +1,14 @@
 import ProfilePhoto from "./components/home/ProfilePhoto";
+import SocialLinks from "./components/home/SocialLinks";
+import { HomePageContent } from "../content/HomePage";
 
 export default function Home() {
   return (
     <>
-      <ProfilePhoto/>
-      <p className="text-lg">
-        I am passionate about Computer Architecture and Digital IC Design, with
-        experience in RTL design, FPGA implementation, firmware development, and
-        cloud development. I possess excellent collaborative and com- munication
-        skills and am a fast and continuous learner who stays focused on
-        emerging technologies in the field, consistently enhancing my expertise.
-      </p>
-      <h1>Education</h1>
+      <ProfilePhoto />
+      <SocialLinks />
+      <p className="text-lg mt-3">{HomePageContent.introduction.text}</p>
+      <h2>{HomePageContent.education.title}</h2>
     </>
   );
 }

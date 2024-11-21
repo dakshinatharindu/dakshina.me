@@ -16,9 +16,9 @@ const ThemeToggleButton = () => {
       className="btn btn-ghost flex items-center gap-2"
     >
       {theme == "dracula" ? (
-        <span className="material-symbols-outlined">light_mode</span>
-      ) : (
         <span className="material-symbols-outlined">dark_mode</span>
+      ) : (
+        <span className="material-symbols-outlined">light_mode</span>
       )}
     </button>
   );
