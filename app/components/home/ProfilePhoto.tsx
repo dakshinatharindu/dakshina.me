@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import MyPhoto from "../../../public/profile.jpg"
+import MyPhoto from "../../../public/profile.jpg";
 
 const ProfilePhoto = () => {
   return (
@@ -19,7 +19,12 @@ const ProfilePhoto = () => {
         </div>
       </div>
       <div>
-        <p className="text-sm">Engineer | Researcher | Computer Architecture Enthusiast</p>
+        <div className="text-sm">
+          Engineer | Researcher | {" "} 
+          <span className="block sm:inline">
+            Computer Architecture Enthusiast
+          </span>
+        </div>
       </div>
     </div>
   );

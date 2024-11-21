@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { useState } from "react";
+import { MdOutlineLightMode, MdOutlineDarkMode } from "react-icons/md";
 
 const ThemeToggleButton = () => {
   const [theme, setTheme] = useState("cupcake");
@@ -16,9 +17,9 @@ const ThemeToggleButton = () => {
       className="btn btn-ghost flex items-center gap-2"
     >
       {theme == "dracula" ? (
-        <span className="material-symbols-outlined">dark_mode</span>
+        <MdOutlineDarkMode size={25}/>
       ) : (
-        <span className="material-symbols-outlined">light_mode</span>
+        <MdOutlineLightMode size={25}/>
       )}
     </button>
   );
