@@ -20,11 +20,6 @@ interface BaseEducationProps {
   description?: string;
 }
 
-// Basic College Props interface
-interface CollegeProps extends BaseEducationProps {
-  detailed?: false;
-}
-
 // Detailed Education Information interface
 interface DetailedEducationInfo extends BaseEducationProps {
   detailed: true;
