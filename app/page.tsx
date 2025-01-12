@@ -1,6 +1,6 @@
 import ProfilePhoto from "./components/home/ProfilePhoto";
 import SocialLinks from "./components/home/SocialLinks";
-import {HomePageContent} from "../content/HomePage";
+import {HomePageContent} from "@/content/HomePage";
 import Education from "./components/home/Education";
 
 export default function Home() {
