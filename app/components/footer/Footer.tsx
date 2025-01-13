@@ -16,7 +16,7 @@ const Footer = () => {
                     {/* Social Icons */}
                     <div className="flex justify-center space-x-6">
                         <a
-                            href="https://github.com/yourusername"
+                            href="https://github.com/dakshinatharindu"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="hover:text-gray-900 transition-colors"
@@ -24,7 +24,7 @@ const Footer = () => {
                             <FaGithub size={18}/>
                         </a>
                         <a
-                            href="https://linkedin.com/in/yourusername"
+                            href="https://linkedin.com/in/dakshinatharindu"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="hover:text-gray-900 transition-colors"
@@ -32,7 +32,7 @@ const Footer = () => {
                             <FaLinkedin size={18}/>
                         </a>
                         <a
-                            href="mailto:your.email@example.com"
+                            href="mailto:dakshinatharindu99@gmail.com"
                             className="hover:text-gray-900 transition-colors"
                         >
                             <CiMail size={18}/>
