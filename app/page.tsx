@@ -2,6 +2,7 @@ import ProfilePhoto from "./components/home/ProfilePhoto";
 import SocialLinks from "./components/home/SocialLinks";
 import {HomePageContent} from "@/content/HomePage";
 import Education from "./components/home/Education";
+import Experience from "./components/home/Experience";
 
 export default function Home() {
     return (
@@ -9,9 +10,8 @@ export default function Home() {
             <ProfilePhoto/>
             <SocialLinks/>
             <p className="mt-3">{HomePageContent.introduction.text}</p>
-            <h2>{HomePageContent.education.title}</h2>
+            <Experience/>
             <Education/>
-            <h2>{HomePageContent.experience.title}</h2>
         </>
     );
 }
