@@ -5,17 +5,11 @@ import {RiArrowDropDownLine, RiArrowDropUpLine} from "react-icons/ri";
 
 // Base interface for common props
 interface BaseEducationProps {
-    /** StaticImageData for the college logo */
     logo: StaticImageData;
-    /** Alt text for the logo image */
     logoAlt?: string;
-    /** Name of the educational institution */
     name: string;
-    /** Degree or certification obtained */
     degree: string;
-    /** Time period of study (e.g., "2020 - 2024") */
     duration: string;
-    /** Optional description of studies, achievements, etc. */
     description?: string;
 }
 
@@ -27,21 +21,11 @@ interface CollegeProps extends BaseEducationProps {
 // Detailed Education Information interface
 interface DetailedEducationInfo extends BaseEducationProps {
     detailed: true;
-    /** Grade Point Average */
     gpa?: string;
     result?: string;
-    /** Location of the institution */
-    location?: string;
-    /** List of awards and honors */
     awards?: string[];
-    /** List of relevant courses */
     relevantCourses?: string[];
-    /** List of extracurricular activities */
     activities?: string[];
-    /** Field of study or major */
-    fieldOfStudy?: string;
-    /** Minor subjects if any */
-    minor?: string;
 }
 
 // Combined type for the component
@@ -59,17 +43,15 @@ const College: React.FC<CombinedCollegeProps> = (props) => {
             <div className="flex items-start space-x-4 p-4">
                 {/* Logo Container */}
                 <div className="flex-shrink-0">
-                    <div className="relative w-16 h-16 rounded-lg flex items-center justify-center overflow-hidden">
-                        <Image
-                            src={props.logo}
-                            alt={props.logoAlt || `${props.name} logo`}
-                            width={64}
-                            height={64}
-                            className="object-cover"
-                            priority={false}
-                            unoptimized
-                        />
-                    </div>
+                    <Image
+                        src={props.logo}
+                        alt={props.logoAlt || `${props.name} logo`}
+                        width={48}
+                        height={48}
+                        className="object-cover"
+                        priority={false}
+                        unoptimized
+                    />
                 </div>
 
                 {/* Content Container */}
@@ -77,13 +59,16 @@ const College: React.FC<CombinedCollegeProps> = (props) => {
                     {/* Primary Information */}
                     <div className="flex justify-between items-start w-full">
                         <div>
-                            <h3 className="text-lg font-semibold">
+                            <h3 className="font-bold">
                                 {props.name}
                             </h3>
-                            <p className="text-base">
+                            <p>
                                 {props.degree}
                             </p>
-                            <p className="text-sm">
+                            <p className="text-sm leading-relaxed">
+                                {props.description}
+                            </p>
+                            <p className="text-gray-500 text-sm">
                                 {props.duration}
                             </p>
                         </div>
@@ -104,27 +89,12 @@ const College: React.FC<CombinedCollegeProps> = (props) => {
                             )}
                         </div>
                     </div>
-
-                    {/* Description */}
-                    {props.description && (
-                        <p className="text-sm mt-2 leading-relaxed">
-                            {props.description}
-                        </p>
-                    )}
                 </div>
             </div>
 
             {/* Detailed Information Section */}
             {props.detailed && isExpanded && (
                 <div className="px-4 pb-4 space-y-3 border-t pt-3">
-
-                    {/*/!* Location and GPA *!/*/}
-                    {/*<div className="flex items-center space-x-4 text-sm italic">*/}
-                    {/*  {props.location && (*/}
-                    {/*      <span>📍 {props.location}</span>*/}
-                    {/*  )}*/}
-                    {/*</div>*/}
-
                     {props.gpa && (
                         <div className="text-sm">
                     <span><span className="font-bold">GPA:</span> <span
