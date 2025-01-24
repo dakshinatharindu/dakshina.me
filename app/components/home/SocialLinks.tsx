@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import {FaGithub, FaLinkedin, FaResearchgate} from "react-icons/fa";
+import {FaGithub, FaLinkedin, FaResearchgate, FaOrcid} from "react-icons/fa";
 import {FaGoogleScholar} from "react-icons/fa6";
 
 const SocialLinks = () => {
@@ -25,7 +25,12 @@ const SocialLinks = () => {
         {
             name: "ResearchGate",
             icon: <FaResearchgate/>,
-            url: "https://www.researchgate.net/profile/yourusername"
+            url: "https://www.researchgate.net/profile/Dakshina-Tharindu"
+        },
+        {
+            name: "ORCID",
+            icon: <FaOrcid/>,
+            url: "https://orcid.org/0009-0008-5404-8081"
         }
     ];
 
