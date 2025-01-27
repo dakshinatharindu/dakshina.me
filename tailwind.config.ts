@@ -26,8 +26,13 @@ export default {
                     secondary: "#474E68",
                     "base-100": "#282c3b",
                 },
+                cupcake: {
+                    ...require("daisyui/src/theming/themes")["cupcake"],
+                    primary: "#91C8E4",
+                    secondary: "#4682A9",
+                    "base-100": "#F6F4EB",
+                }
             },
-            "cupcake",
         ],
     },
 } satisfies Config;
