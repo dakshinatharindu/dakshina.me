@@ -2,7 +2,7 @@
 import Link from "next/link";
 import {usePathname} from "next/navigation";
 import React, {useState, useEffect, useRef} from "react";
-import ThemeToggleButton from "./components/navbar/ThemeToggleButton";
+import ThemeToggleButton from "@/components/navbar/ThemeToggleButton";
 import {FiMenu} from "react-icons/fi";
 
 const NavBar = () => {
