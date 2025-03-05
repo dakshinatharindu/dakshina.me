@@ -1,7 +1,7 @@
 import College from "./College";
-import UoMPhoto from "../../../public/uom.png";
-import UFLPhoto from "../../../public/uflorida_logo.png";
-import ThurstanPhoto from "../../../public/Thurstan_College_crest.png";
+import UoMPhoto from "../../public/uom.png";
+import UFLPhoto from "../../public/uflorida_logo.png";
+import ThurstanPhoto from "../../public/Thurstan_College_crest.png";
 import {HomePageContent} from "@/content/HomePage";
 
 const Education = () => {

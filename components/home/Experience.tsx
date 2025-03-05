@@ -1,7 +1,7 @@
 import UFLogo from "@/public/uflorida_logo.png";
 import lsegLogo from "@/public/lseg.png";
 import pqLogo from "@/public/pq.jpg";
-import ExperienceCard from "@/app/components/home/ExperienceCard";
+import ExperienceCard from "@/components/home/ExperienceCard";
 import {HomePageContent} from "@/content/HomePage";
 
 const Experience = () => {
