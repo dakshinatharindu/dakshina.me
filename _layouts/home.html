@@ -8,51 +8,56 @@ refactor: true
   <!-- Header Section -->
   <div class="cover-container" style="position: relative; margin-bottom: 60px;">
     <!-- Cover photo -->
-    <div style="width: 100%; height: 200px; border-radius: 12px; background-image: url('{{ '/assets/cover/uflorida_cover.jpeg' | relative_url }}'); background-size: cover; background-position: center;"></div>
+    <div
+      style="width: 100%; height: 200px; border-radius: 12px; background-image: url('{{ '/assets/cover/uflorida_cover.jpeg' | relative_url }}'); background-size: cover; background-position: center;"
+    ></div>
 
     <!-- Profile picture overlay -->
     <div style="position: absolute; bottom: -50px; left: 24px; width: 150px; height: 150px; border-radius: 50%; overflow: hidden; border: 4px solid white; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-      <div style="width: 100%; height: 100%; background-image: url('{{ '/assets/avatar/avatar.jpeg' | relative_url }}'); background-size: cover; background-position: center;"></div>
+      <div
+        style="width: 100%; height: 100%; background-image: url('{{ '/assets/avatar/avatar.jpeg' | relative_url }}'); background-size: cover; background-position: center;"
+      ></div>
     </div>
   </div>
   <header class="profile-header">
     <div class="profile-intro">
       <h1><strong>Dakshina Tharindu</strong></h1>
-      <p class="tagline">Just a chill guy</p>
-
-      <div class="social-links" style="margin-top: 20px;">
+      <p class="tagline" style="margin-bottom: 0px;">Researcher | Engineer | Computer System Enthusiast</p>
+      <p class="location" style="margin-bottom: 0px; font-size: 0.875em;">
+        <i class="fas fa-map-marker-alt"></i> Gainesville, Florida, USA
+      </p>
+      <div class="social-links" style="font-size: 0.875em;">
         <a
           href="https://linkedin.com/in/dakshinatharindu"
           title="LinkedIn"
-          style="font-size: 1.5em; margin-right: 15px; color: inherit;"
-          ><i class="fab fa-linkedin"></i
-        ></a>
+          style="margin-right: 10px; color: inherit;"
+          ><i class="fab fa-linkedin"></i> LinkedIn
+        </a>
         <a
           href="https://github.com/dakshinatharindu"
           title="GitHub"
-          style="font-size: 1.5em; margin-right: 15px; color: inherit;"
-          ><i class="fab fa-github"></i
-        ></a>
-        {% comment %} <a href="https://scholar.google.com/citations?user=yourprofile" title="Google Scholar" style="font-size: 1.5em; margin-right: 15px; color: inherit;"><i class="fas fa-graduation-cap"></i></a> {% endcomment %}
+          style="margin-right: 10px; color: inherit;"
+          ><i class="fab fa-github"></i> GitHub
+        </a>
+        {% comment %} <a href="https://scholar.google.com/citations?user=yourprofile" title="Google Scholar" style="margin-right: 15px; color: inherit;"><i class="fas fa-graduation-cap"></i></a> {% endcomment %}
         <a
           href="https://www.researchgate.net/profile/Dakshina-Tharindu"
           title="ResearchGate"
-          style="font-size: 1.5em; margin-right: 15px; color: inherit;"
-          ><i class="fab fa-researchgate"></i
-        ></a>
+          style="margin-right: 10px; color: inherit;"
+          ><i class="fab fa-researchgate"></i> ResearchGate
+        </a>
         <a
           href="https://orcid.org/0009-0008-5404-8081"
           title="ORCID"
-          style="font-size: 1.5em; margin-right: 15px; color: inherit;"
-          ><i class="fab fa-orcid"></i
-        ></a>
+          style="margin-right: 10px; color: inherit;"
+          ><i class="fab fa-orcid"></i> ORCiD
+        </a>
       </div>
     </div>
   </header>
-
+  <hr style="margin: 10px 0;">
   <!-- About Me Section -->
   <section class="about-section">
-    <h2>Little bit about me...</h2>
     <p>
       Dakshina Tharindu is a PhD student in Computer Engineering at the University of Florida. He received his B.Sc.
       (Hons) in Electronic and Telecommunication Engineering from the University of Moratuwa, Sri Lanka. His current
@@ -61,6 +66,54 @@ refactor: true
       and Intel (Quartus, ModelSim). He is also skilled in using UVM and QuestaSim for RTL verification. Dakshina is
       passionate about exploring new technologies and solving challenging problems in his field.
     </p>
+  </section>
+
+  <!-- Education Section -->
+  <section class="education-section">
+    <h2>Education</h2>
+    <div class="education-container" style="display: flex; flex-wrap: wrap; gap: 20px; margin-bottom: 20px;">
+      <!-- First Education Item -->
+      <div
+        class="education-item"
+        style="display: flex; flex: 1 1 calc(50% - 10px); min-width: 345px; margin-bottom: 30px; align-items: flex-start;"
+      >
+        <!-- University Logo -->
+        <div class="university-logo" style="flex: 0 0 100px; margin-right: 20px;">
+            <div
+            style="width: 100px; height: 100px; border-radius: 12px; background-image: url('{{ 'assets/edu/uflorida_logo.png' | relative_url }}'); background-size: contain; background-position: center; background-repeat: no-repeat;"
+            ></div>
+        </div>
+
+        <!-- Education Details -->
+        <div class="education-details" style="flex: 1;">
+          <h4 style="margin-top: 0; margin-bottom: 4px;">University of Florida</h4>
+          <p style="margin: 0 0 -6px 0; font-weight: 600;">Doctor of Philosophy (PhD)</p>
+          <p style="margin: 0 0 -6px 0; font-style: italic;">Computer Engineering</p>
+          <p style="margin: 0;">Jan 2025 - Present</p>
+        </div>
+      </div>
+
+      <!-- Second Education Item -->
+      <div
+        class="education-item"
+        style="display: flex; flex: 1 1 calc(50% - 10px); min-width: 345px; margin-bottom: 30px; align-items: flex-start;"
+      >
+        <!-- University Logo -->
+        <div class="university-logo" style="flex: 0 0 100px; margin-right: 20px;">
+          <div
+            style="width: 100px; height: 100px; background-image: url('{{ 'assets/edu/uom.png' | relative_url }}'); background-size: contain; background-position: center; background-repeat: no-repeat;"
+          ></div>
+        </div>
+
+        <!-- Education Details -->
+        <div class="education-details" style="flex: 1;">
+          <h4 style="margin-top: 0; margin-bottom: 4px;">University of Moratuwa</h4>
+          <p style="margin: 0 0 -6px 0; font-weight: 600;">Bachelor of Science (Hons)</p>
+          <p style="margin: 0 0 -6px 0; font-style: italic;">Electronic and Tele. Engineering</p>
+          <p style="margin: 0;">Jan 2020 - Jun 2024</p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- Experience Section -->
@@ -84,20 +137,6 @@ refactor: true
           <li>Key achievement or responsibility 3</li>
         </ul>
       </div>
-    </div>
-  </section>
-
-  <!-- Education Section -->
-  <section class="education-section">
-    <h2>Education</h2>
-
-    <div class="education-item">
-      <h3>Degree Name</h3>
-      <p class="institution">University or Institution Name</p>
-      <p class="duration">Year - Year</p>
-      <p class="details">
-        Any additional details about your education, such as majors, minors, thesis topics, or notable achievements.
-      </p>
     </div>
   </section>
 
