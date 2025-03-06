@@ -1,0 +1,308 @@
+---
+layout: default
+refactor: true
+---
+{% include lang.html %}
+
+<div class="container">
+  <!-- Header Section -->
+  <div class="cover-container" style="position: relative; margin-bottom: 60px;">
+    <!-- Cover photo -->
+    <div
+      style="width: 100%; height: 200px; border-radius: 12px; background-image: url('{{ '/assets/cover/uflorida_cover.jpeg' | relative_url }}'); background-size: cover; background-position: center;"
+    ></div>
+
+    <!-- Profile picture overlay -->
+    <div style="position: absolute; bottom: -50px; left: 24px; width: 150px; height: 150px; border-radius: 50%; overflow: hidden; border: 4px solid white; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+      <div
+        style="width: 100%; height: 100%; background-image: url('{{ '/assets/avatar/avatar.jpeg' | relative_url }}'); background-size: cover; background-position: center;"
+      ></div>
+    </div>
+  </div>
+  <header class="profile-header">
+    <div class="profile-intro">
+      <h1><strong>Dakshina Tharindu</strong></h1>
+      <p class="tagline" style="margin-bottom: 0px;">Researcher | Engineer | Computer System Enthusiast</p>
+      <p class="location" style="margin-bottom: 0px; font-size: 0.875em;">
+        <i class="fas fa-map-marker-alt"></i> Gainesville, Florida, USA
+      </p>
+      <div class="social-links" style="font-size: 0.875em;">
+        <a
+          href="https://linkedin.com/in/dakshinatharindu"
+          title="LinkedIn"
+          style="margin-right: 10px; color: inherit;"
+          ><i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        <a
+          href="https://github.com/dakshinatharindu"
+          title="GitHub"
+          style="margin-right: 10px; color: inherit;"
+          ><i class="fab fa-github"></i> GitHub
+        </a>
+        {% comment %} <a href="https://scholar.google.com/citations?user=yourprofile" title="Google Scholar" style="margin-right: 15px; color: inherit;"><i class="fas fa-graduation-cap"></i></a> {% endcomment %}
+        <a
+          href="https://www.researchgate.net/profile/Dakshina-Tharindu"
+          title="ResearchGate"
+          style="margin-right: 10px; color: inherit;"
+          ><i class="fab fa-researchgate"></i> ResearchGate
+        </a>
+        <a
+          href="https://orcid.org/0009-0008-5404-8081"
+          title="ORCID"
+          style="margin-right: 10px; color: inherit;"
+          ><i class="fab fa-orcid"></i> ORCiD
+        </a>
+      </div>
+    </div>
+  </header>
+  <hr style="margin: 10px 0;">
+  <!-- About Me Section -->
+  <section class="about-section">
+    <p>
+      Dakshina Tharindu is a PhD student in Computer Engineering at the University of Florida. He received his B.Sc.
+      (Hons) in Electronic and Telecommunication Engineering from the University of Moratuwa, Sri Lanka. His current
+      research focuses on hardware security and verification, firmware security, and AI accelerators. Dakshina has
+      experience with a variety of EDA tools including Cadence (Genus, Innovus), Synopsys (VCS), Xilinx (Vivado, Vitis),
+      and Intel (Quartus, ModelSim). He is also skilled in using UVM and QuestaSim for RTL verification. Dakshina is
+      passionate about exploring new technologies and solving challenging problems in his field.
+    </p>
+  </section>
+
+  <!-- Education Section -->
+  <section class="education-section">
+    <h2>Education</h2>
+    <div
+      class="education-container"
+      style="display: flex; flex-wrap: wrap; gap: 20px; margin-bottom: 0px; padding-bottom: 0px;"
+    >
+      <!-- First Education Item -->
+      <div
+        class="education-item"
+        style="display: flex; flex: 1 1 calc(50% - 10px); min-width: 345px; margin-bottom: 0px; align-items: flex-start;"
+      >
+        <!-- University Logo -->
+        <div class="university-logo" style="flex: 0 0 100px; margin-right: 20px;">
+          <div
+            style="width: 100px; height: 100px; border-radius: 12px; background-image: url('{{ 'assets/edu/uflorida_logo.png' | relative_url }}'); background-size: contain; background-position: center; background-repeat: no-repeat;"
+          ></div>
+        </div>
+
+        <!-- Education Details -->
+        <div class="education-details" style="flex: 1;">
+          <h4 style="margin-top: 0; margin-bottom: 4px;">University of Florida</h4>
+          <p style="margin: 0 0 -6px 0; font-weight: 600;">Doctor of Philosophy (PhD)</p>
+          <p style="margin: 0 0 -6px 0; font-style: italic;">Computer Engineering</p>
+          <p style="margin: 0;">Jan 2025 - Present</p>
+        </div>
+      </div>
+
+      <!-- Second Education Item -->
+      <div
+        class="education-item"
+        style="display: flex; flex: 1 1 calc(50% - 10px); min-width: 345px; margin-bottom: 0px; align-items: flex-start;"
+      >
+        <!-- University Logo -->
+        <div class="university-logo" style="flex: 0 0 100px; margin-right: 20px;">
+          <div
+            style="width: 100px; height: 100px; background-image: url('{{ 'assets/edu/uom.png' | relative_url }}'); background-size: contain; background-position: center; background-repeat: no-repeat;"
+          ></div>
+        </div>
+
+        <!-- Education Details -->
+        <div class="education-details" style="flex: 1;">
+          <h4 style="margin-top: 0; margin-bottom: 4px;">University of Moratuwa</h4>
+          <p style="margin: 0 0 -6px 0; font-weight: 600;">Bachelor of Science (Hons)</p>
+          <p style="margin: 0 0 -6px 0; font-style: italic;">Electronic and Tele. Engineering</p>
+          <p style="margin: 0;">Jan 2020 - Jun 2024</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section class="education-section">
+    <h2>Experience</h2>
+    <div
+      class="education-container"
+      style="display: flex; flex-wrap: wrap; gap: 20px; margin-bottom: 0px; padding-bottom: 0px;"
+    >
+      <!-- First Item -->
+      <div
+        class="education-item"
+        style="display: flex; flex: 1 1 calc(50% - 10px); min-width: 345px; margin-bottom: 0px; align-items: flex-start;"
+      >
+        <!-- Logo -->
+        <div class="university-logo" style="flex: 0 0 100px; margin-right: 20px;">
+          <div
+            style="width: 100px; height: 100px; border-radius: 12px; background-image: url('{{ 'assets/edu/uflorida_logo.png' | relative_url }}'); background-size: contain; background-position: center; background-repeat: no-repeat;"
+          ></div>
+        </div>
+
+        <!-- Details -->
+        <div class="education-details" style="flex: 1;">
+          <h4 style="margin-top: 0; margin-bottom: 4px;">Research Assistant</h4>
+          <p style="margin: 0 0 -6px 0; font-weight: 600;">University of Florida</p>
+          <p style="margin: 0;">Jan 2025 - Present</p>
+        </div>
+      </div>
+
+      <!-- Second Item -->
+      <div
+        class="education-item"
+        style="display: flex; flex: 1 1 calc(50% - 10px); min-width: 345px; margin-bottom: 0px; align-items: flex-start;"
+      >
+        <!-- Logo -->
+        <div class="university-logo" style="flex: 0 0 100px; margin-right: 20px;">
+          <div
+            style="width: 100px; height: 100px; border-radius: 12px; background-image: url('{{ 'assets/exp/lseg.png' | relative_url }}'); background-size: contain; background-position: center; background-repeat: no-repeat;"
+          ></div>
+        </div>
+
+        <!-- Education Details -->
+        <div class="education-details" style="flex: 1;">
+          <h4 style="margin-top: 0; margin-bottom: 4px;">Hardware Accelerated Engineer</h4>
+          <p style="margin: 0 0 -6px 0; font-weight: 600;">London Stock Exchange Group</p>
+          <p style="margin: 0;">Jun 2024 - Dec 2024</p>
+        </div>
+      </div>
+
+      <!-- Third Item -->
+      <div
+        class="education-item"
+        style="display: flex; flex: 1 1 calc(50% - 10px); min-width: 345px; margin-bottom: 0px; align-items: flex-start;"
+      >
+        <!-- Logo -->
+        <div class="university-logo" style="flex: 0 0 100px; margin-right: 20px;">
+          <div
+            style="width: 100px; height: 100px; border-radius: 12px; background-image: url('{{ 'assets/exp/sifive.png' | relative_url }}'); background-size: contain; background-position: center; background-repeat: no-repeat;"
+          ></div>
+        </div>
+
+        <!-- Education Details -->
+        <div class="education-details" style="flex: 1;">
+          <h4 style="margin-top: 0; margin-bottom: 4px;">VLSI Engineer (Intern)</h4>
+          <p style="margin: 0 0 -6px 0; font-weight: 600;">SiFive</p>
+          <p style="margin: 0;">Jan 2023 - Jun 2023</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<h2>Highlighted Posts</h2>
+
+{% assign all_pinned = site.posts | where: 'pin', 'true' %}
+{% assign all_normal = site.posts | where_exp: 'item', 'item.pin != true and item.hidden != true' %}
+
+{% assign posts = '' | split: '' %}
+
+<!-- Get pinned posts on current page -->
+
+{% assign visible_start = paginator.page | minus: 1 | times: paginator.per_page %}
+{% assign visible_end = visible_start | plus: paginator.per_page %}
+
+{% if all_pinned.size > visible_start %}
+  {% if all_pinned.size > visible_end %}
+    {% assign pinned_size = paginator.per_page %}
+  {% else %}
+    {% assign pinned_size = all_pinned.size | minus: visible_start %}
+  {% endif %}
+
+  {% for i in (visible_start..all_pinned.size) limit: pinned_size %}
+    {% assign posts = posts | push: all_pinned[i] %}
+  {% endfor %}
+{% else %}
+  {% assign pinned_size = 0 %}
+{% endif %}
+
+<!-- Get normal posts on current page -->
+
+{% assign normal_size = paginator.posts | size | minus: pinned_size %}
+
+{% if normal_size > 0 %}
+  {% if pinned_size > 0 %}
+    {% assign normal_start = 0 %}
+  {% else %}
+    {% assign normal_start = visible_start | minus: all_pinned.size %}
+  {% endif %}
+
+  {% assign normal_end = normal_start | plus: normal_size | minus: 1 %}
+
+  {% for i in (normal_start..normal_end) %}
+    {% assign posts = posts | push: all_normal[i] %}
+  {% endfor %}
+{% endif %}
+
+<div id="post-list" class="flex-grow-1 px-xl-1">
+  {% for post in posts %}
+    <article class="card-wrapper card">
+      <a href="{{ post.url | relative_url }}" class="post-preview row g-0 flex-md-row-reverse">
+        {% assign card_body_col = '12' %}
+
+        {% if post.image %}
+          {% assign src = post.image.path | default: post.image %}
+          {% unless src contains '//' %}
+            {% assign src = post.media_subpath | append: '/' | append: src | replace: '//', '/' %}
+          {% endunless %}
+
+          {% assign alt = post.image.alt | xml_escape | default: 'Preview Image' %}
+
+          {% assign lqip = null %}
+
+          {% if post.image.lqip %}
+            {% capture lqip %}lqip="{{ post.image.lqip }}"{% endcapture %}
+          {% endif %}
+
+          <div class="col-md-5">
+            <img src="{{ src }}" alt="{{ alt }}" {{ lqip }}>
+          </div>
+
+          {% assign card_body_col = '7' %}
+        {% endif %}
+
+        <div class="col-md-{{ card_body_col }}">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">{{ post.title }}</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>{% include post-description.html %}</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                {% include datetime.html date=post.date lang=lang %}
+
+                <!-- categories -->
+                {% if post.categories.size > 0 %}
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    {% for category in post.categories %}
+                      {{ category }}
+                      {%- unless forloop.last -%},{%- endunless -%}
+                    {% endfor %}
+                  </span>
+                {% endif %}
+              </div>
+
+              {% if post.pin %}
+                <div class="pin ms-1">
+                  <i class="fas fa-thumbtack fa-fw"></i>
+                  <span>{{ site.data.locales[lang].post.pin_prompt }}</span>
+                </div>
+              {% endif %}
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  {% endfor %}
+</div>
+<!-- #post-list -->
+
+{% if paginator.total_pages > 1 %}
+  {% include post-paginator.html %}
+{% endif %}
