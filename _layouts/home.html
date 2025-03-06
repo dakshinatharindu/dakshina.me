@@ -2,8 +2,109 @@
 layout: default
 refactor: true
 ---
+{% include lang.html %}
 
-{% comment %} {% include lang.html %}
+<div class="container">
+  <!-- Header Section -->
+  <div class="cover-photo">
+    <div style="width: 100%; height: 300px; border-radius: 12px; background-image: url('{{ '/assets/cover/uflorida_cover.jpeg' | relative_url }}'); background-size: cover; background-position: center;"></div>
+  </div>
+  <header class="profile-header">
+    <div class="profile-intro">
+      <h1><strong>Dakshina Tharindu</strong></h1>
+      <p class="tagline">Just a chill guy</p>
+
+      <div class="social-links" style="margin-top: 20px;">
+        <a
+          href="https://linkedin.com/in/dakshinatharindu"
+          title="LinkedIn"
+          style="font-size: 1.5em; margin-right: 15px; color: inherit;"
+          ><i class="fab fa-linkedin"></i
+        ></a>
+        <a
+          href="https://github.com/dakshinatharindu"
+          title="GitHub"
+          style="font-size: 1.5em; margin-right: 15px; color: inherit;"
+          ><i class="fab fa-github"></i
+        ></a>
+        {% comment %} <a href="https://scholar.google.com/citations?user=yourprofile" title="Google Scholar" style="font-size: 1.5em; margin-right: 15px; color: inherit;"><i class="fas fa-graduation-cap"></i></a> {% endcomment %}
+        <a
+          href="https://www.researchgate.net/profile/Dakshina-Tharindu"
+          title="ResearchGate"
+          style="font-size: 1.5em; margin-right: 15px; color: inherit;"
+          ><i class="fab fa-researchgate"></i
+        ></a>
+        <a
+          href="https://orcid.org/0009-0008-5404-8081"
+          title="ORCID"
+          style="font-size: 1.5em; margin-right: 15px; color: inherit;"
+          ><i class="fab fa-orcid"></i
+        ></a>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Me Section -->
+  <section class="about-section">
+    <h2>Little bit about me...</h2>
+    <p>
+      Dakshina Tharindu is a PhD student in Computer Engineering at the University of Florida. He received his B.Sc.
+      (Hons) in Electronic and Telecommunication Engineering from the University of Moratuwa, Sri Lanka. His current
+      research focuses on hardware security and verification, firmware security, and AI accelerators. Dakshina has
+      experience with a variety of EDA tools including Cadence (Genus, Innovus), Synopsys (VCS), Xilinx (Vivado, Vitis),
+      and Intel (Quartus, ModelSim). He is also skilled in using UVM and QuestaSim for RTL verification. Dakshina is
+      passionate about exploring new technologies and solving challenging problems in his field.
+    </p>
+  </section>
+
+  <!-- Experience Section -->
+  <section class="experience-section">
+    <h2>Professional Experience</h2>
+
+    <div class="experience-item">
+      <div class="experience-header">
+        <h3>Job Title</h3>
+        <p class="company">Company Name</p>
+        <p class="duration">Month Year - Present</p>
+      </div>
+      <div class="experience-description">
+        <p>
+          Describe your responsibilities and achievements in this role. Use specific examples and quantify results when
+          possible.
+        </p>
+        <ul>
+          <li>Key achievement or responsibility 1</li>
+          <li>Key achievement or responsibility 2</li>
+          <li>Key achievement or responsibility 3</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section class="education-section">
+    <h2>Education</h2>
+
+    <div class="education-item">
+      <h3>Degree Name</h3>
+      <p class="institution">University or Institution Name</p>
+      <p class="duration">Year - Year</p>
+      <p class="details">
+        Any additional details about your education, such as majors, minors, thesis topics, or notable achievements.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Call to Action (Optional) -->
+  <section class="contact-cta">
+    <h2>Let's Connect</h2>
+    <p>
+      Interested in working together? Feel free to reach out via
+      <a href="mailto:your.email@example.com">email</a> or connect with me on
+      <a href="https://linkedin.com/in/yourprofile">LinkedIn</a>.
+    </p>
+  </section>
+</div>
 
 {% assign all_pinned = site.posts | where: 'pin', 'true' %}
 {% assign all_normal = site.posts | where_exp: 'item', 'item.pin != true and item.hidden != true' %}
@@ -119,4 +220,4 @@ refactor: true
 
 {% if paginator.total_pages > 1 %}
   {% include post-paginator.html %}
-{% endif %} {% endcomment %}
+{% endif %}
