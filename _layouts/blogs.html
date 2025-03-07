@@ -5,7 +5,7 @@ refactor: true
 {% include lang.html %}
 
 {% assign all_blogs = site.posts | where: 'blog', 'true' %}
-{% assign all_blogs = all_blogs | sort: 'date' %}
+{% assign all_blogs = all_blogs | sort: 'date' | reverse %}
 {% assign all_blogs_size = all_blogs.size | minus: 1 %}
 
 {% assign posts = '' | split: '' %}
