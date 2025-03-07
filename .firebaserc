@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "mywebsite-87d82"
-  }
+    "default": "dakshina-me"
+  },
+  "targets": {},
+  "etags": {}
 }
