@@ -12,8 +12,28 @@ jobs:
     if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - run: JEKYLL_ENV=production bundle exec jekyll b
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # for posts's lastmod
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.3
+          bundler-cache: true
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+
+      - name: Build Assets
+        run: npm i && npm run build
+
+      - name: Test Site
+        run: bash tools/test.sh
+        
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
