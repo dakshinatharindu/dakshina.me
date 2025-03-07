@@ -15,6 +15,10 @@ refactor: true
   {% assign posts = posts | push: all_projects[i] %}
 {% endfor %}
 
+<h1 class="page-title">
+  <span class="title">{{ "Projects" }}</span>
+</h1>
+
 <div id="post-list" class="flex-grow-1 px-xl-1">
   {% for post in posts %}
     <article class="card-wrapper card">
