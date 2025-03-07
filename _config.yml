@@ -14,9 +14,9 @@ timezone: America/New_York
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Dakshina Tharindu # the main title
+title: Dakshina # the main title
 
-tagline: Researcher | Engineer
+tagline: Researcher | Engineer | Computer System Enthusiast
 
 description: >- # used by seo meta and the atom feed
   Dakshina Tharindu is a researcher at University of Florida, Gainesville, FL, USA. He is a Ph.D. student in
@@ -41,11 +41,11 @@ social:
   email: dakshinatharindu99@gmail.com
   links:
     # The first element serves as the copyright owner's link
-    - https://x.com/dakshinatharind # change to your homepage
+    -   
     - https://github.com/dakshinatharindu
+    - https://x.com/dakshinatharind # change to your homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
-    - https://www.linkedin.com/in/dakshinatharindu
 
 # Site Verification Settings
 webmaster_verifications:
@@ -98,7 +98,7 @@ theme_mode: # [light | dark]
 # will be added to all media resources (site avatar, posts' images, audio and video files) paths starting with '/'
 #
 # e.g. 'https://cdn.com'
-cdn: 
+cdn:
 
 # the avatar on sidebar, support local or CORS resources
 avatar: "assets/avatar/avatar.jpeg"
