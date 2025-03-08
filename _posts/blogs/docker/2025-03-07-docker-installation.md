@@ -5,7 +5,7 @@ description: >-
 author: dakshina
 date: 2025-03-07 18:00:00 -0500
 categories: [Blogging, Docker]
-tags: [docker vscode]
+tags: [docker]
 pin: true
 blog: true
 image:
@@ -17,13 +17,11 @@ image:
 ## Introduction
 Have you ever encountered a situation where your application works flawlessly on your machine but fails on another? Or faced the daunting task of setting up a new environment, worrying about installing all dependencies and potential version conflicts with other projects? Docker can help! Docker is a platform that allows you to package your application and its dependencies into a container, ensuring it runs consistently across different environments. In this blog post, we'll guide you through the process of installing Docker on your system and setting up a basic container.
 
-## Prerequisites
-Before we begin, make sure you have the following prerequisites:
-- A computer running Windows, macOS, or Linux.
-- Administrative privileges on your system.
-- An internet connection to download Docker.
 
 ## Installation
+> Before we begin, make sure you have the **admin privileges** on your system. Otherwise, contact your system administrator to install Docker for you.
+{: .prompt-warning }
+
 I will be installing Docker on Linux system. If you are using a different operating system, please refer to the official Docker documentation for [Windows](https://docs.docker.com/desktop/setup/install/windows-install/) or [macOS](https://docs.docker.com/desktop/setup/install/mac-install/).
 ### Step 1: Install Docker on Your System
 
@@ -76,4 +74,4 @@ docker run hello-world
 This command will download a test image and run it in a container. If everything is set up correctly, you should see a message indicating that Docker is working.
 
 ## Conclusion
-Congratulations! You have successfully installed Docker on your system and verified its functionality. In the next blog post, we will explore how to create and manage Docker containers. Stay tuned!
+You have successfully installed Docker on your system and verified its functionality. In the next blog post, we will explore how to create and run Docker containers. Stay tuned!
