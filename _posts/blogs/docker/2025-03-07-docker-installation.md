@@ -23,13 +23,11 @@ Have you ever encountered a situation where your application works flawlessly on
 {: .prompt-warning }
 
 I will be installing Docker on Linux system. If you are using a different operating system, please refer to the official Docker documentation for [Windows](https://docs.docker.com/desktop/setup/install/windows-install/) or [macOS](https://docs.docker.com/desktop/setup/install/mac-install/).
-### Step 1: Install Docker on Your System
-
+1. **Install Docker on Your System**
 - Arch Linux
   ```bash
   sudo pacman -S docker
   ```
-
 - Ubuntu/Debian
   ```bash
   # Add Docker's official GPG key:
@@ -38,35 +36,32 @@ I will be installing Docker on Linux system. If you are using a different operat
   sudo install -m 0755 -d /etc/apt/keyrings
   sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
   sudo chmod a+r /etc/apt/keyrings/docker.asc
-
   # Add the repository to Apt sources:
   echo \
     "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
     $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
     sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
   sudo apt-get update
-
   # Install Docker:
   sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
   ```
-
-### Step 2: Start Docker Service
+2. **Start Docker Service**
 After installation, you need to start the Docker service. Run the following command:
 ```bash
 sudo systemctl start docker
 ```
-### Step 3: Enable Docker to Start on Boot
+3. **Enable Docker to Start on Boot**
 To ensure Docker starts automatically when your system boots, run the following command:
 ```bash
 sudo systemctl enable docker
 ```
-### Step 4: Add Your User to the Docker Group
+4. **Add Your User to the Docker Group**
 By default, Docker requires root privileges to run. To avoid using `sudo` every time you run a Docker command, you can add your user to the Docker group. Run the following command:
 ```bash
 sudo usermod -aG docker $USER
 ```
 After running this command, you need to log out and log back in for the changes to take effect.
-### Step 5: Verify Docker Installation
+5. **Verify Docker Installation**
 To verify that Docker is installed correctly, run the following command:
 ```bash
 docker run hello-world

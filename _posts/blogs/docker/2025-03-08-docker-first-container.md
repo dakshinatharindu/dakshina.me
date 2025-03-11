@@ -22,47 +22,39 @@ In the previous blog post, we covered the installation of Docker on your system.
 
 ## Creating Docker Image and Running Container
 Let's start by creating a simple Docker image. We'll use a basic Debian image as our base and install some essential packages.
-### Step 1: Create a Project Directory
-Create a new directory for your Docker project. You can name it whatever you like. For this example, I'll use `my-docker-app`.
+1. **Create a Project Directory**: Create a new directory for your Docker project. You can name it whatever you like. For this example, I'll use `my-docker-app`.
 ```bash
 mkdir my-docker-app
 cd my-docker-app
 ```
-### Step 2: Create a Dockerfile
-Inside your project directory, create a file named `Dockerfile` (no file extension). This file will contain instructions for building your Docker image.
+2. **Create a Dockerfile**: Inside your project directory, create a file named `Dockerfile` (no file extension). This file will contain instructions for building your Docker image.
 ```bash
 touch Dockerfile
 ```
-### Step 3: Write the Dockerfile
-Open the `Dockerfile` in a text editor and add the following content:
+3. **Write the Dockerfile**: Open the `Dockerfile` in a text editor and add the following content:
+You can refer to [this section](#understanding-the-dockerfile-commands) for more information about the Dockerfile commands.
 ```Dockerfile
 # Use the official Debian image
 FROM debian:latest
-
 # Update the package list and install necessary packages
 RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y --no-install-recommends bash curl wget vim \
     build-essential autoconf git wget python3 python3-pip && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 ```
-You can refer to [this section](#understanding-the-dockerfile-commands) for more information about the Dockerfile commands.
-
-### Step 4: Build the Docker Image
-Now, let's build our Docker image using the `docker build` command. Make sure you are in the project directory where the `Dockerfile` is located.
+4. **Build the Docker Image**: Now, let's build our Docker image using the `docker build` command. Make sure you are in the project directory where the `Dockerfile` is located.
 ```bash
 docker build -t my-docker-image .
 ```
 This command will build the Docker image and tag it as `my-docker-image`. The `.` at the end specifies the build context, which is the current directory.
 
-### Step 5: Verify the Image
-After the build process completes, you can verify that your image was created successfully by running:
+5. **Verify the Image**: After the build process completes, you can verify that your image was created successfully by running:
 ```bash
 docker images
 ```
 You should see your `my-docker-image` listed in the output.
 
-### Step 6: Running Your First Docker Container
-Now that we have our Docker image, let's run a container based on it. To run a container from your image, use the `docker run` command:
+6. **Running Your First Docker Container**: Now that we have our Docker image, let's run a container based on it. To run a container from your image, use the `docker run` command:
 ```bash
 docker run -it --name my-container my-docker-image
 ```
