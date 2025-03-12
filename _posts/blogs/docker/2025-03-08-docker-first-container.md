@@ -20,7 +20,7 @@ In the previous blog post, we covered the installation of Docker on your system.
 > Before we begin, make sure you have Docker installed on your system. If you haven't installed Docker yet, please refer to the [previous blog post](../docker-installation) for installation instructions.
 {: .prompt-warning }
 
-## Creating Docker Image and Running Container
+## Creating Docker image and running container
 Let's start by creating a simple Docker image. We'll use a basic Debian image as our base and install some essential packages.
 1. **Create a Project Directory**: Create a new directory for your Docker project. You can name it whatever you like. For this example, I'll use `my-docker-app`.
 ```bash
@@ -42,25 +42,32 @@ RUN apt-get update && apt-get upgrade -y && \
     build-essential autoconf git wget python3 python3-pip && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 ```
-4. **Build the Docker Image**: Now, let's build our Docker image using the `docker build` command. Make sure you are in the project directory where the `Dockerfile` is located.
+4. **Build the Docker image**: Now, let's build our Docker image using the `docker build` command. Make sure you are in the project directory where the `Dockerfile` is located.
 ```bash
 docker build -t my-docker-image .
 ```
 This command will build the Docker image and tag it as `my-docker-image`. The `.` at the end specifies the build context, which is the current directory.
 
-5. **Verify the Image**: After the build process completes, you can verify that your image was created successfully by running:
+5. **Verify the image**: After the build process completes, you can verify that your image was created successfully by running:
 ```bash
 docker images
 ```
 You should see your `my-docker-image` listed in the output.
 
-6. **Running Your First Docker Container**: Now that we have our Docker image, let's run a container based on it. To run a container from your image, use the `docker run` command:
+6. **Running your first Docker container**: Now that we have our Docker image, let's run a container based on it. To run a container from your image, use the `docker run` command:
 ```bash
 docker run -it --name my-container my-docker-image
 ```
 This command will start a new container named `my-container` based on the `my-docker-image` image. The `-it` flag allows you to interact with the container's shell. Once the container is running, you will be inside the container's shell. You can now execute commands as if you were on a regular Debian system.
 
-## How to Stop and Remove the Container
+## How to view running containers
+To view the list of running containers, you can use the following command:
+```bash
+docker ps
+```
+This command will list all the running containers along with their details.
+
+## How to stop and remove the container
 To stop the container, you can use the `exit` command inside the container's shell. If you want to remove the container, you can use the following command:
 ```bash
 docker remove my-container
@@ -69,9 +76,22 @@ If you want to remove the image, you can use the following command:
 ```bash
 docker rmi my-docker-image
 ```
-
 > Please make sure to remove old containers and images to free up space on your system. Docker usually takes significant space on your system.
 {: .prompt-warning }
+
+## How to open another shell in a running container
+Sometimes you may want to open another shell inside a running container. You can do this using the `docker exec` command. For example:
+```bash
+docker exec -it my-container /bin/bash
+```
+This command will open a new shell inside the running container.
+
+## How to attach a local directory to a container
+If you want to attach a local directory to a container, you can use the `-v` flag with the `docker run` command. For example:
+```bash
+docker run -it -v /path/to/local/directory:/path/in/container my-docker-image
+```
+This will attach the local directory to the container at the specified path. You can modify the contents from both the host and the container and they will be in sync.
 
 ## Understanding the Dockerfile Commands
 In the Dockerfile we created, we used only two commands. However, there are many more commands available to customize your Docker image. Here are some of the most commonly used Dockerfile commands:
