@@ -1,5 +1,5 @@
 ---
-title: 1. Chisel: A Beginner's Guide
+title: "1. Chisel: A Beginner's Guide"
 description: >-
   A step-by-step guide to mastering Chisel, a powerful tool for building hardware designs. This tutorial is designed for beginners and covers the essentials of Chisel.
 author: dakshina
