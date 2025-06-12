@@ -20,6 +20,11 @@ Chisel is a powerful hardware description language (HDL) that allows you to desi
 ## Installation
 > Before we begin, make sure you have the **admin privileges** on your system.
 {: .prompt-warning }
-I will be installing Chisel on a Linux system. If you are using a different operating system, please refer to the official Chisel documentation for installation instructions.
+I will be installing Chisel on Arch Linux system. If you are using a different operating system, please refer to the official Chisel documentation for installation instructions.
+
+1. Install Java Development Kit (JDK):
+   ```bash
+   sudo pacman -S jdk-openjdk
+   ```
 
 
