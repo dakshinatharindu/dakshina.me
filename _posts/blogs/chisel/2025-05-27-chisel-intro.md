@@ -44,3 +44,67 @@ You can use [chisel-template](https://github.com/dakshinatharindu/chisel-templat
    This command will run the tests included in the project. If everything is set up correctly, you should see the tests passing without any errors.
 
 ## Writing Your First Chisel Module
+Lets create a simple Chisel module that adds two numbers together. Follow these steps:
+1. **Create a New File**: In the `src/main/scala/adder` directory, create a new file named `Adder.scala`. You may need to create the `adder` directory.
+2. **Write the Chisel Code**: Open `Adder.scala` and add the following code:
+   ```scala
+    package adder
+
+    import chisel3._
+    import chisel3.util._
+
+    class Adder(width: Int = 32) extends Module {
+      val io = IO(new Bundle {
+        val a = Input(UInt(width.W))
+        val b = Input(UInt(width.W))
+        val sum = Output(UInt(width.W))
+        val cout = Output(Bool())
+      })
+
+      // Perform addition with carry out
+      val result = io.a +& io.b
+      io.sum := result(width-1, 0)
+      io.cout := result(width)
+    }
+    ```
+3. **Create a Test for the Module**: In the `src/test/scala/adder` directory, create a new file named `AdderTest.scala` and add the following code:
+    ```scala
+    package adder
+
+    import chisel3._
+    import chisel3.simulator.EphemeralSimulator._
+    import org.scalatest.flatspec.AnyFlatSpec
+    import org.scalatest.matchers.should.Matchers
+
+    class AdderTest extends AnyFlatSpec with Matchers {
+      behavior of "Adder"
+
+      it should "add two numbers correctly without carry" in {
+        simulate(new Adder(8)) { dut =>
+          dut.io.a.poke(5.U)
+          dut.io.b.poke(3.U)
+          dut.clock.step(1)
+          dut.io.sum.expect(8.U)
+          dut.io.cout.expect(false.B)
+        }
+      }
+
+      it should "add two numbers correctly with carry" in {
+        simulate(new Adder(8)) { dut =>
+          dut.io.a.poke(255.U)
+          dut.io.b.poke(1.U)
+          dut.clock.step(1)
+          dut.io.sum.expect(0.U)
+          dut.io.cout.expect(true.B)
+        }
+      }
+    }
+    ```
+4. **Run the Tests**: In the terminal, run the following command to execute the tests:
+  ```bash
+  sbt test
+  ```
+  You should see the test for the Adder module passing successfully.
+
+## Conclusion
+In this blog post, we have covered the basics of getting started with Chisel, including installation, writing your first Chisel module, and testing it. Chisel is a powerful tool for hardware design, and with this foundation, you can start exploring more complex designs and features. In the next blog post, we will dive deeper into Chisel's features and explore how to create more complex hardware designs. Stay tuned!
