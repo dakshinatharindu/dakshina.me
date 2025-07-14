@@ -106,5 +106,36 @@ Lets create a simple Chisel module that adds two numbers together. Follow these 
   ```
   You should see the test for the Adder module passing successfully.
 
+## Generate SystemVerilog Code
+Now that you have written your first Chisel module and tested it, you can generate the SystemVerilog code for your module. Chisel allows you to generate hardware description languages like Verilog or SystemVerilog from your Chisel code, which can then be synthesized and implemented on FPGA or ASICs. To do this, follow these steps:
+1. **Create a New File**: In the `src/main/scala/adder` directory, create a new file named `GenerateVerilog.scala`.
+2. **Write the Code to Generate Verilog**: Open `GenerateVerilog.scala` and add the following code:
+    ```scala
+    package adder
+
+    import chisel3._
+    import circt.stage.ChiselStage
+    import java.io.{File, FileWriter}
+
+    object GenerateVerilog extends App {
+      // Create directory if it doesn't exist
+      val targetDir = "generated"
+      val dir = new File(targetDir)
+      if (!dir.exists()) dir.mkdirs()
+      
+      val verilog = ChiselStage.emitSystemVerilog(new Adder(8))
+      val verilogFile = new File(s"$targetDir/Adder.sv")
+      val writer = new FileWriter(verilogFile)
+      writer.write(verilog)
+      writer.close()
+    }
+    ```
+3. **Run the Verilog Generation**: In the terminal, run the following command:
+   ```bash
+   sbt "runMain adder.GenerateVerilog"
+   ```
+   This will generate the SystemVerilog code for the Adder module and save it in the `generated` directory as `Adder.sv`.
+
+
 ## Conclusion
 In this blog post, we have covered the basics of getting started with Chisel, including installation, writing your first Chisel module, and testing it. Chisel is a powerful tool for hardware design, and with this foundation, you can start exploring more complex designs and features. In the next blog post, we will dive deeper into Chisel's features and explore how to create more complex hardware designs. Stay tuned!
