@@ -83,7 +83,7 @@ order: 1
 </div>
 
 <script>
-  const ORCID_ID = '0009-0008-5404-8081'; // ← CHANGE THIS!
+  const ORCID_ID = '0009-0008-5404-8081';
 
   async function fetchPublications() {
     const container = document.getElementById('publications-container');
@@ -119,7 +119,7 @@ order: 1
 
     const years = Object.keys(byYear).sort((a, b) => b - a);
     let html = '';
-    let publicationNumber = 1; // ← Add this counter
+    let publicationNumber = 1;
 
     years.forEach((year) => {
       html += `<h2 class="year-heading">${year}</h2>`;
@@ -146,7 +146,7 @@ order: 1
                         </div>
                     </div>
                 `;
-        publicationNumber++; // ← Increment the counter
+        publicationNumber++;
       });
     });
 
