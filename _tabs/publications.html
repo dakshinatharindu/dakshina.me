@@ -1,0 +1,157 @@
+---
+layout: default
+refactor: true
+icon: fas fa-book-open
+order: 1
+---
+{% include lang.html %}
+
+<style>
+  .loading {
+    text-align: center;
+    padding: 40px;
+    color: #7f8c8d;
+  }
+
+  .error {
+    background: #fee;
+    border: 1px solid #fcc;
+    padding: 15px;
+    border-radius: 5px;
+    color: #c33;
+  }
+
+  .publication-item {
+    margin-bottom: 30px;
+    display: flex;
+    gap: 15px;
+  }
+
+  .publication-number {
+    font-size: 1.2em;
+    font-weight: bold;
+    min-width: 20px;
+    flex-shrink: 0;
+    line-height: 1.2em; /* Add this */
+  }
+
+  .publication-content h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.2em;
+    line-height: 1.2em; /* Add this to match */
+  }
+
+  .publication-item h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.2em;
+  }
+
+  .journal {
+    color: #555;
+    font-style: italic;
+    margin: 0 0 0 0;
+  }
+
+  .meta {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 10px 0;
+    font-size: 0.9em;
+    color: #666;
+  }
+
+  .type-badge {
+    background: #e8f4f8;
+    color: #2980b9;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.85em;
+  }
+
+  .year-heading {
+    font-size: 1.5em;
+    margin: 30px 0 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ecf0f1;
+  }
+</style>
+
+<h1>Publications</h1>
+<div id="publications-container">
+  <div class="loading">Loading publications from ORCID...</div>
+</div>
+
+<script>
+  const ORCID_ID = '0009-0008-5404-8081'; // ← CHANGE THIS!
+
+  async function fetchPublications() {
+    const container = document.getElementById('publications-container');
+
+    try {
+      const response = await fetch(`https://pub.orcid.org/v3.0/${ORCID_ID}/works`, {
+        headers: { Accept: 'application/json' }
+      });
+
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+      const data = await response.json();
+      displayPublications(data);
+    } catch (error) {
+      container.innerHTML = `<div class="error"><strong>Error:</strong> ${error.message}</div>`;
+    }
+  }
+
+  function displayPublications(data) {
+    const works = data.group || [];
+    if (works.length === 0) {
+      document.getElementById('publications-container').innerHTML = '<p>No publications found.</p>';
+      return;
+    }
+
+    const byYear = {};
+    works.forEach((work) => {
+      const summary = work['work-summary'][0];
+      const year = summary['publication-date']?.year?.value || 'Unknown';
+      if (!byYear[year]) byYear[year] = [];
+      byYear[year].push(summary);
+    });
+
+    const years = Object.keys(byYear).sort((a, b) => b - a);
+    let html = '';
+    let publicationNumber = 1; // ← Add this counter
+
+    years.forEach((year) => {
+      html += `<h2 class="year-heading">${year}</h2>`;
+      byYear[year].forEach((s) => {
+        const title = s.title?.title?.value || 'Untitled';
+        const journal = s['journal-title']?.value || '';
+        const type = s.type?.replace(/-/g, ' ') || '';
+        const doi = s['external-ids']?.['external-id']?.find((id) => id['external-id-type'] === 'doi');
+
+        html += `
+                    <div class="publication-item">
+                        <div class="publication-number">${publicationNumber}.</div>
+                        <div class="publication-content">
+                            <h3 style="margin-bottom: 5px;">${title}</h3>
+                            ${journal ? `<div class="journal">${journal}</div>` : ''}
+                            {% comment %} <div class="meta">
+                                ${type ? `<span class="type-badge">${type}</span>` : ''}
+                            </div> {% endcomment %}
+                            ${
+                              doi
+                                ? `<a href="https://doi.org/${doi['external-id-value']}" target="_blank">View Publication</a>`
+                                : ''
+                            }
+                        </div>
+                    </div>
+                `;
+        publicationNumber++; // ← Increment the counter
+      });
+    });
+
+    document.getElementById('publications-container').innerHTML = html;
+  }
+
+  fetchPublications();
+</script>
