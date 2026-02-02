@@ -11,9 +11,14 @@
   icon: "fab fa-orcid"
   url: "https://orcid.org/0009-0008-5404-8081"
 
-- type: researchgate
-  icon: "fab fa-researchgate"
-  url: "https://www.researchgate.net/profile/Dakshina-Tharindu"
+- type: google-scholar
+  icon: "fas fa-graduation-cap"
+  url: "https://scholar.google.com/citations?user=UKzN6O3cMKAC&hl=en"
+
+# - type: researchgate
+#   icon: "fab fa-researchgate"
+#   url: "https://www.researchgate.net/profile/Dakshina-Tharindu"
+
 
 # - type: twitter
 #   icon: "fa-brands fa-x-twitter"
